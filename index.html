@@ -5,22 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kaal Chakra</title>
     <link rel="stylesheet" href="style.css">
+    <script src="stopWatch.js"></script>
 </head>
 <body>
     <h1>kaal chakra</h1>
     <div class="chakraContainer">
         <div class="func">
-            <div id="reset" class="bubble"></div>
+            <div id="reset" class="bubble" onclick="reset();">reset</div>
             <div id="lapCounter" class="bubble"></div>
-            <div id="start" class="bubble"></div>
-            <div id="stop" class="bubble"></div>
+            <div id="start" class="bubble" onclick="rotate(); reverseRotate(); start();"><img src="assets/play.png"></div>
+            <div id="stop" class="bubble" onclick="stop();">stop</div>
             
         </div>
-        <div class="chakra rotate">
-            <div class="kaal reverseRotate">
-                00 00 00 
+        <div class="chakra">
+            <div class="kaal">
+                <span class="time" id="hr">00</span>
+                <span>:</span>
+                <span class="time" id="min">00</span>
+                <span>:</span>
+                <span class="time" id="sec">00</span>
             </div>
         </div>
     </div>
+
 </body>
 </html>
