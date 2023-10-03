@@ -1,0 +1,78 @@
+@font-face{
+    font-family: samarkan;
+    src : url(assets/SAMAN.ttf)
+}
+
+body{
+    background-color: #333;
+}
+
+h1{
+    font-family: samarkan;
+    color: goldenrod;
+    text-align: center;
+    font-size: 50px;
+}
+
+.chakraContainer{
+    width: 100%;
+    height: 50%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.chakra{
+    background-image: url(assets/kaalChakra.svg);
+    background-repeat: no-repeat;
+    width: 400px;
+    height: 400px;
+    background-size: contain;
+    border-radius: 50%;
+    box-shadow: 0px 0px 8px 3px whitesmoke;
+    transition: 0.9s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.chakra:hover{
+    transform: scale(1.05);
+}
+
+.kaal{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.reverseRotate{
+    animation: rotate-reverse 8s linear infinite;
+}
+.rotate{
+    animation: wheel 8s linear infinite;
+}
+@keyframes rotate-reverse {
+    from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(-360deg);
+    }
+}
+@keyframes wheel {
+    from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg);
+    }
+}
+
+.kaal{
+    background-color: #362FD9;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    color: whitesmoke;
+    font-size: 30px;
+}
