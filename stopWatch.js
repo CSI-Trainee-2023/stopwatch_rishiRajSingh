@@ -1,4 +1,6 @@
 
+// -----> Stop Watch Reset, Stop , Play Button 
+
 var hr =0 ;
 var min =0 ;
 var sec =0 ;
@@ -47,11 +49,15 @@ function stopwatch(){
 
 
 
-
+// ----> Wheel rotation 
 
 function rotate(){
-    document.getElementsByClassName('chakra')[0].classList.toggle('rotate');
+    document.getElementsByClassName('chakra')[0].style.animationPlayState = 'running';
 }
 function reverseRotate(){
-    document.getElementsByClassName('kaal')[0].classList.toggle('reverseRotate');
+    document.getElementsByClassName('kaal')[0].style.animationPlayState = 'running';
+}
+function pauseWheel(){
+    document.getElementsByClassName('chakra')[0].style.animationPlayState = 'paused';
+    document.getElementsByClassName('kaal')[0].style.animationPlayState = 'paused';
 }
