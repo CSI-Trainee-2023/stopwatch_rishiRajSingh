@@ -22,7 +22,7 @@ h1{
     height: 50%;
     display: flex;
     justify-content: center;
-    gap: 200px;
+    gap: 50px;
     align-items: center;    
 }
 
@@ -89,11 +89,20 @@ h1{
 
 .func{
     display: flex;
-    width: 150px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 40px;
+    width: 300px;
     height: 100%;
-    gap: 20px;
-
 }
+.btn{
+    display: flex;
+    justify-content: center;
+    width: 150px;
+    gap: 20px;
+}
+
  .bubble{
     background-color: whitesmoke;
     display: flex;
@@ -160,5 +169,10 @@ h1{
 
 .show{
     display: flex;
-    flex-direction: row-reverse;
+}
+
+
+/* --- laps --- */
+.laps{
+    overflow: auto;
 }

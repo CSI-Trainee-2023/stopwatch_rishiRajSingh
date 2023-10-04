@@ -1,5 +1,3 @@
-
-
 var hr =0 ;
 var min =0 ;
 var sec =0 ;
@@ -7,18 +5,26 @@ var count = 0;
 
 var timer = false ;
 
-// ----> counting number of clicks on play button for wheel synchronization 
+// -----> KeyBoard Shortcuts 
 
-// function countClicks(){
-//     if( count % 2 == 0 ){
-//         start();
-//         rotate();
-//         reverseRotate();
-//     }
-//     count++;
-// }
+document.addEventListener('keydown', (e)=>{
+    e.preventDefault()
+    if( (e.key === "s" || e.key == "p")&& 
+    e.ctrlKey){ 
+        start(); rotate(); reverseRotate(); show();
+    }
+    if( e.key === "x" && e.ctrlKey){
+        setTimeout(stop(),100); pauseWheel(); hide();
+    }
+    if( e.ctrlKey && e.key === "r"){
+        reset(); showPlay();
+    }
+    if( e.key === "l" && e.ctrlKey){
+        
+    }
+});
 
-// -----> Stop Watch Reset, Stop , Play Button 
+// ----> StopWatch Function 
 
 function start(){
     timer = true ;
@@ -75,7 +81,7 @@ function pauseWheel(){
     document.getElementsByClassName('kaal')[0].style.animationPlayState = 'paused';
 }
 
-// ----> toggle play pause Button 
+// ----> toggle play -- pause -- reset ---  Button 
 
 
 
@@ -106,7 +112,8 @@ function hide(){
     stop.add('hide');
     let reset = document.getElementById('reset').classList;
     reset.remove('show');
-    reset.add('hide');    
+    reset.add('hide');
+
 }
 
 function showPlay(){
