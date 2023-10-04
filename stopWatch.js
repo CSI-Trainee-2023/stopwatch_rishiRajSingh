@@ -1,11 +1,24 @@
 
-// -----> Stop Watch Reset, Stop , Play Button 
 
 var hr =0 ;
 var min =0 ;
 var sec =0 ;
+var count = 0; 
 
 var timer = false ;
+
+// ----> counting number of clicks on play button for wheel synchronization 
+
+// function countClicks(){
+//     if( count % 2 == 0 ){
+//         start();
+//         rotate();
+//         reverseRotate();
+//     }
+//     count++;
+// }
+
+// -----> Stop Watch Reset, Stop , Play Button 
 
 function start(){
     timer = true ;
@@ -49,7 +62,7 @@ function stopwatch(){
 
 
 
-// ----> Wheel rotation 
+// ----> Wheel rotation and stop-action
 
 function rotate(){
     document.getElementsByClassName('chakra')[0].style.animationPlayState = 'running';
@@ -60,4 +73,46 @@ function reverseRotate(){
 function pauseWheel(){
     document.getElementsByClassName('chakra')[0].style.animationPlayState = 'paused';
     document.getElementsByClassName('kaal')[0].style.animationPlayState = 'paused';
+}
+
+// ----> toggle play pause Button 
+
+
+
+function show(){
+    let stop =  document.getElementById('stop').classList;
+    stop.remove('hide');
+    stop.add('show');
+    let reset = document.getElementById('reset').classList;
+    reset.remove('hide');
+    reset.add('show');
+    let start = document.getElementById('start').classList;
+    start.remove('show');
+    start.add('hide');
+    let lap = document.getElementById('lapCounter').classList;
+    lap.remove('show');
+    lap.add('hide');
+}
+
+function hide(){
+    let start = document.getElementById('start').classList;
+    start.remove('hide');
+    start.add('show');
+    let lap = document.getElementById('lapCounter').classList;
+    lap.remove('hide');
+    lap.add('show'); 
+    let stop =  document.getElementById('stop').classList;
+    stop.remove('show');
+    stop.add('hide');
+    let reset = document.getElementById('reset').classList;
+    reset.remove('show');
+    reset.add('hide');    
+}
+
+function showPlay(){
+    hide();
+    let lap = document.getElementById('lapCounter').classList;
+    lap.remove('show');
+    lap.add('hide');
+    pauseWheel();
 }

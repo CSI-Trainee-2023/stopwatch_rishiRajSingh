@@ -11,10 +11,10 @@
     <h1>kaal chakra</h1>
     <div class="chakraContainer">
         <div class="func">
-            <div id="start" class="bubble" onclick="start(); rotate(); reverseRotate();"><img src="assets/play.png"></div>                          
-            <div id="lapCounter" class="bubble"><img src="assets/lap.png"></div>
-            <div id="reset" class="bubble" onclick="reset();"><img src="assets/reset.png"></div>
-            <div id="stop" class="bubble" onclick="stop(); pauseWheel();"><img src="assets/pause.png"></div>
+            <div id="start" class="bubble show" onclick="start(); rotate(); reverseRotate(); show();"><img src="assets/play.png"></div>
+            <div id="stop" class="bubble hide" onclick="stop(); pauseWheel(); hide();"><img src="assets/pause.png"></div>                        
+            <div id="lapCounter" class="bubble hide"><img src="assets/lap.png"></div>
+            <div id="reset" class="bubble hide" onclick="reset(); showPlay();"><img src="assets/reset.png"></div>            
         </div>
         <div class="chakra">
             <div class="kaal">
