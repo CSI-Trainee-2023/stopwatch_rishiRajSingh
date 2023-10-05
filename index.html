@@ -13,24 +13,51 @@
         <div class="func">
             <div class="btn">
                 <div id="start" class="bubble show" onclick="start(); rotate(); reverseRotate(); show();"><img src="assets/play.png"></div>
-                <div id="stop" class="bubble hide" onclick="setTimeout(stop(),100); pauseWheel(); hide();"><img src="assets/pause.png"></div>                        
-                <div id="lapCounter" class="bubble hide"><img src="assets/lap.png"></div>
+                <div id="stop" class="bubble hide" onclick="stop(); pauseWheel(); hide();"><img src="assets/pause.png"></div>                        
+                <div id="lapCounter" class="bubble hide" onclick="buttonShow(); lapsDisplay();"><img src="assets/lap.png"></div>
                 <div id="reset" class="bubble hide" onclick="reset(); showPlay();"><img src="assets/reset.png"></div>            
             </div>
-            <div class="laps">
-
-            </div>
+            <ul class="laps">
+                
+            </ul>
+            <button class="clearBtn hide">Clear</button>
         </div>
         <div class="chakra">
             <div class="kaal">
-                <span class="time" id="hr">00</span>
-                <span>:</span>
                 <span class="time" id="min">00</span>
                 <span>:</span>
                 <span class="time" id="sec">00</span>
+                <span>:</span>
+                <span class="time" id="mil">00</span>
             </div>
         </div>
     </div>
+    <script>
+        var time = localStorage.getItem("timesNow");
 
+        var min =0 ;
+        var sec =0 ;
+        var mil =0 ;
+        var timer = false ;
+
+        min = parseInt(time.substring(0,2));
+        sec = parseInt(time.substring(5,7));
+        mil = parseInt(time.substring(11,13));
+        if ( sec < 10){
+            document.getElementById("sec").innerHTML = "0" + sec ;
+        }else {
+            document.getElementById("sec").innerHTML = sec ;
+        }        
+        if ( min < 10){
+            document.getElementById("min").innerHTML = "0" + min ;
+        }else {
+            document.getElementById("min").innerHTML = min ;
+        }   
+        if ( mil < 10){
+            document.getElementById("mil").innerHTML = "0" + mil ;
+        }else {
+            document.getElementById("mil").innerHTML = mil ;
+        } 
+    </script>
 </body>
 </html>

@@ -1,69 +1,103 @@
-var hr =0 ;
-var min =0 ;
-var sec =0 ;
-var count = 0; 
+// ----> accessing from local storage 
 
-var timer = false ;
+
+
+
+
+
 
 // -----> KeyBoard Shortcuts 
 
 document.addEventListener('keydown', (e)=>{
     e.preventDefault()
-    if( (e.key === "s" || e.key == "p")&& 
+    if( (e.key === "s" || e.key === "p")&& 
     e.ctrlKey){ 
         start(); rotate(); reverseRotate(); show();
     }
     if( e.key === "x" && e.ctrlKey){
-        setTimeout(stop(),100); pauseWheel(); hide();
+        stop(); pauseWheel(); hide();
     }
     if( e.ctrlKey && e.key === "r"){
         reset(); showPlay();
     }
     if( e.key === "l" && e.ctrlKey){
-        
+        buttonShow();
     }
 });
 
+// -----> Loading the previous Data 
+
+
+
+
+
+
 // ----> StopWatch Function 
 
-function start(){
+function start(){ 
     timer = true ;
-    stopwatch();    
+    stopwatch();
 }
 function stop(){
-    timer = false ;
+    timer = false ;  
 }
 function reset(){
     timer = false;
-    hr = 0 ;
+    mil = 0 ;
     min = 0;
     sec = 0;
 
-    document.getElementById("sec").innerHTML = sec ;
-    document.getElementById("min").innerHTML = min ;
-    document.getElementById("hr").innerHTML = hr ;
+    document.getElementById("mil").innerHTML = "0" + mil ;
+    document.getElementById("sec").innerHTML = "0" + sec ;
+    document.getElementById("min").innerHTML = "0" + min ;
 }   
 function stopwatch(){
     if( timer == true ){
-        sec++ ;
+        mil++ ;
+
+        if( mil == 100){
+            sec++ ;
+            mil = 0 ;
+        }
 
         if( sec == 60){
             min++ ;
-            sec = 0 ;
-        }
-
-        if( min == 60){
-            hr++ ;
-            min =0;
             sec =0;
+            mil =0;
         }
-        document.getElementById("sec").innerHTML = sec ;
-        document.getElementById("min").innerHTML = min ;
-        document.getElementById("hr").innerHTML = hr ;
-        setTimeout("stopwatch()", 1000);
+        if ( sec < 10){
+            document.getElementById("sec").innerHTML = "0" + sec ;
+        }else {
+            document.getElementById("sec").innerHTML = sec ;
+        }        
+        if ( min < 10){
+            document.getElementById("min").innerHTML = "0" + min ;
+        }else {
+            document.getElementById("min").innerHTML = min ;
+        }   
+        if ( mil < 10){
+            document.getElementById("mil").innerHTML = "0" + mil ;
+        }else {
+            document.getElementById("mil").innerHTML = mil ;
+        } 
+        let timeNow = "0" + min + " : " + "0" + sec + " : " + "0" + mil ;
+        localStorage.setItem("timesNow", timeNow );
+        let timer =setTimeout("stopwatch()", 10);     
     }
+    else{
+        clearTimeout(timer);
+    }    
 }
 
+// ----> Laps Display 
+function buttonShow(){
+    document.getElementsByClassName('clearBtn')[0].classList.remove('hide');
+    document.getElementsByClassName('clearBtn')[0].classList.add('buttonShow');
+
+}
+function lapsDisplay(){
+
+}
 
 
 
