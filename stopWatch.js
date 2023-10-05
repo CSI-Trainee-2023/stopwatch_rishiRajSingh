@@ -1,11 +1,3 @@
-// ----> accessing from local storage 
-
-
-
-
-
-
-
 // -----> KeyBoard Shortcuts 
 
 document.addEventListener('keydown', (e)=>{
@@ -24,13 +16,6 @@ document.addEventListener('keydown', (e)=>{
         buttonShow();
     }
 });
-
-// -----> Loading the previous Data 
-
-
-
-
-
 
 // ----> StopWatch Function 
 
@@ -80,7 +65,7 @@ function stopwatch(){
         }else {
             document.getElementById("mil").innerHTML = mil ;
         } 
-        let timeNow = "0" + min + " : " + "0" + sec + " : " + "0" + mil ;
+        let timeNow = "0" + min + " : " + "0"  + sec +  " : " + "0" + mil ;
         localStorage.setItem("timesNow", timeNow );
         let timer =setTimeout("stopwatch()", 10);     
     }
@@ -96,7 +81,12 @@ function buttonShow(){
 
 }
 function lapsDisplay(){
+    const li =  document.createElement("li");
+    const laps = document.getElementsByClassName('laps')[0];
+    li.setAttribute("class","li-item");
+    li.append(time);
 
+    laps.append(li);
 }
 
 
@@ -123,37 +113,37 @@ function show(){
     let stop =  document.getElementById('stop').classList;
     stop.remove('hide');
     stop.add('show');
-    let reset = document.getElementById('reset').classList;
-    reset.remove('hide');
-    reset.add('show');
+    let lap = document.getElementById('lapCounter').classList;
+    lap.remove('hide');
+    lap.add('show');
     let start = document.getElementById('start').classList;
     start.remove('show');
     start.add('hide');
-    let lap = document.getElementById('lapCounter').classList;
-    lap.remove('show');
-    lap.add('hide');
+    let reset = document.getElementById('reset').classList;
+    reset.remove('show');
+    reset.add('hide');
 }
 
 function hide(){
     let start = document.getElementById('start').classList;
     start.remove('hide');
     start.add('show');
-    let lap = document.getElementById('lapCounter').classList;
-    lap.remove('hide');
-    lap.add('show'); 
+    let reset = document.getElementById('reset').classList;
+    reset.remove('hide');
+    reset.add('show'); 
     let stop =  document.getElementById('stop').classList;
     stop.remove('show');
     stop.add('hide');
-    let reset = document.getElementById('reset').classList;
-    reset.remove('show');
-    reset.add('hide');
+    let lap = document.getElementById('lapCounter').classList;
+    lap.remove('show');
+    lap.add('hide');
 
 }
 
 function showPlay(){
     hide();
-    let lap = document.getElementById('lapCounter').classList;
-    lap.remove('show');
-    lap.add('hide');
+    let reset = document.getElementById('reset').classList;
+    reset.remove('show');
+    reset.add('hide');
     pauseWheel();
 }

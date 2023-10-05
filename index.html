@@ -32,9 +32,13 @@
             </div>
         </div>
     </div>
-    <script>
-        var time = localStorage.getItem("timesNow");
 
+    <!-- internal Javascript -->
+    
+    <script>
+        // ----> accessing from local storage 
+
+        var time = localStorage.getItem("timesNow");
         var min =0 ;
         var sec =0 ;
         var mil =0 ;
@@ -43,6 +47,10 @@
         min = parseInt(time.substring(0,2));
         sec = parseInt(time.substring(5,7));
         mil = parseInt(time.substring(11,13));
+
+
+        // -----> Loading the previous Data 
+
         if ( sec < 10){
             document.getElementById("sec").innerHTML = "0" + sec ;
         }else {

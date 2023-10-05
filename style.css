@@ -31,6 +31,7 @@ h1{
     color: whitesmoke;
     width: 200px;
     height: 150px;
+    padding-left: 0px;
 }
 .laps::-webkit-scrollbar{
     display: none;
@@ -154,7 +155,7 @@ h1{
     .chakraContainer{
         display: flex;
         flex-direction: column-reverse;
-        gap: 70px;
+        gap: 30px;
     }
     .chakra{
         width: 220px;
@@ -180,6 +181,12 @@ h1{
     #reset img {
         width: 42px;
         height: 42px;
+    }
+    .func{
+        gap: 0px;
+    }
+    .laps{
+        height: 120px;
     }
 }
 
