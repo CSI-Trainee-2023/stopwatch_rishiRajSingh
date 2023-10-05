@@ -1,3 +1,4 @@
+
 // -----> KeyBoard Shortcuts 
 
 document.addEventListener('keydown', (e)=>{
@@ -67,14 +68,81 @@ function stopwatch(){
         } 
         let timeNow = "0" + min + " : " + "0"  + sec +  " : " + "0" + mil ;
         localStorage.setItem("timesNow", timeNow );
-        let timer =setTimeout("stopwatch()", 10);     
+        let timer =setTimeout("stopwatch()", 10);    
     }
     else{
         clearTimeout(timer);
     }    
 }
 
+
 // ----> Laps Display 
+// let secEx = 0;
+// let milEx = 0 ;
+// let minEx = 0 ; 
+// let int = null ;
+// document.getElementById("start").addEventListener("click", 
+// () => {
+//     if( int != null ){
+//         clearInterval(int);
+//     }
+//     int = setInterval(displaytimer, 10);
+// });
+// document.getElementById('stop').addEventListener("click",
+// () => {
+//     clearInterval(int);
+// }
+// )
+
+// function displaytimer(){
+//     milEx++ ;
+//     if( milEx == 100 ){
+//         secEx++ ;
+//         milEx = 0;
+//     }
+//     if( secEx == 60 ){
+//         minEx++ ;
+//         secEx = 0 ;
+//         milEx = 0 ;
+//     }
+// }
+
+
+// const playButton = document.getElementById("start");
+// const lapButton = document.getElementById("lapCounter");
+// const resetButton = document.getElementById("reset");
+// const stopButton  = document.getElementById("stop");
+
+// let isPlay = false ;
+// const play = () => {
+//     if(!isPlay){        
+//         let counterMil = setInterval ( () => {
+//             milEx++ ; 
+//         },10);
+//         if( milEx == 100 ){
+//             secEx++ ;
+//             milEx = 0;
+//         }
+//         if ( secEx == 60){
+//             minEx++ ;
+//             secEx = 0 ;
+//             milEx = 0;
+//         }
+//         isPlay = true ;
+//     }else{
+//         clearInterval(milEx);
+//         isPlay =false ;
+//     }
+// }
+
+
+// const resetEx = () => {
+//     play();
+// }
+
+// playButton.addEventListener("click",play);
+// resetButton.addEventListener("click",resetEx);
+
 function buttonShow(){
     document.getElementsByClassName('clearBtn')[0].classList.remove('hide');
     document.getElementsByClassName('clearBtn')[0].classList.add('buttonShow');
@@ -84,7 +152,8 @@ function lapsDisplay(){
     const li =  document.createElement("li");
     const laps = document.getElementsByClassName('laps')[0];
     li.setAttribute("class","li-item");
-    li.append(time);
+    let timeNew = min + " : " + sec + " : "  + mil;   
+    li.append(timeNew);
 
     laps.append(li);
 }
