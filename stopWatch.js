@@ -14,7 +14,7 @@ document.addEventListener('keydown', (e)=>{
         reset(); showPlay();
     }
     if( e.key === "l" && e.ctrlKey){
-        buttonShow();
+        buttonShow(); lapsDisplay();
     }
 });
 
