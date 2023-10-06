@@ -20,7 +20,7 @@
             <ul class="laps">
                 
             </ul>
-            <button class="clearBtn hide">Clear</button>
+            <button class="clearBtn hide" onclick="clearLap();">Clear</button>
         </div>
         <div class="chakra">
             <div class="kaal">
@@ -48,6 +48,9 @@
         sec = parseInt(time.substring(5,7));
         mil = parseInt(time.substring(11,13));
 
+        
+
+
 
         // -----> Loading the previous Data 
 
@@ -65,7 +68,10 @@
             document.getElementById("mil").innerHTML = "0" + mil ;
         }else {
             document.getElementById("mil").innerHTML = mil ;
-        } 
+
+        }
+        
+        
     </script>
 </body>
 </html>
